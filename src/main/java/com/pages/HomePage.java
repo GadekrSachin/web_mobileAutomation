@@ -4,14 +4,21 @@ import java.time.Duration;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Properties;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
+
 import test.Base_Driver;
+
+
 
 public class HomePage {
 
 	WebDriver driver;
+
 
 	Properties props = ConfigManager.getProperties();
 	Common common= new Common();
@@ -20,12 +27,12 @@ public class HomePage {
 	private By red_line = By.xpath("//span[@class=\"MuiTypography-root MuiTypography-body1 css-1w22uhs\"]");
 	private By ele = By.xpath("\r\n"
 			+ " //android.widget.FrameLayout[@content-desc=\"Web View\"]");
-	
-	
-	
 
-	public HomePage(WebDriver driver) {
-		this.driver = driver;
+
+
+
+	public HomePage(WebDriver webDriver) {
+		this.driver = (RemoteWebDriver) webDriver;
 	}
 
 	public void verify_red_line() {
@@ -38,8 +45,14 @@ public class HomePage {
 
 	}
 
-	public void drag_and_drop_functionality() {  
-		common.scrollUsingUiScrollable(  driver , ele);		
+	public void drag_and_drop_functionality() {
+
+		System.out.println("data 1");
+		 WebElement source = Base_Driver.driver.findElement(By.xpath("//i[@class=\"ri-newspaper-line\"]"));
+	     WebElement target = Base_Driver.driver.findElement(By.xpath("(//tr[@class=\"MuiTableRow-root time-slot-wrapper css-hnhery\"])[57]"));
+			System.out.println("data 2");
+
+	     Common.dragAndDrop(Base_Driver.driver, source, target);
 	}
 
 }

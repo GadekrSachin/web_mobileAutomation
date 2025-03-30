@@ -13,7 +13,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import io.appium.java_client.android.AndroidDriver;
 
 public class Base_Driver {
-	
+
 	public static WebDriver driver;
 	public static ThreadLocal<WebDriver> tdriver = new ThreadLocal<>();
 
@@ -25,12 +25,12 @@ public class Base_Driver {
 			System.setProperty("webdriver.chrome.driver", "src/test/resources/Driver/chromedriver-124.exe");
 			ChromeOptions options = new ChromeOptions();
 			// Set binary if needed (optional)
-			options.setBinary("C:\\Selenium WebDriver\\chrome-browser-124-win64\\chrome.exe");
+			options.setBinary("C:\\Users\\SHUBH\\Driver\\Testing browser\\chrome-win64-124\\chrome.exe");
 			driver = new ChromeDriver(options);
 			tdriver.set(driver);
 
 		} else if (browser.equalsIgnoreCase("firefox")) {
-//            WebDriverManager.firefoxdriver().setup();		
+//            WebDriverManager.firefoxdriver().setup();
 			WebDriver driver = new FirefoxDriver();
 			tdriver.set(driver);
 
@@ -43,7 +43,7 @@ public class Base_Driver {
 			caps.setCapability("platformName", "Android");
 			caps.setCapability("deviceName", "emulator-5554");
 			caps.setCapability("browserName", "Chrome");
-			caps.setCapability("automationName", "UiAutomator2"); 
+			caps.setCapability("automationName", "UiAutomator2");
 			String chromeDriverPath = System.getProperty("user.dir") + "/src/test/resources/Driver/chromedriver-124.exe";
 			caps.setCapability("chromedriverExecutable", chromeDriverPath);
 			System.out.println("Starting Mobile web Automation...");
@@ -51,7 +51,7 @@ public class Base_Driver {
 
 			try {
 				driver = new AndroidDriver(new URL("http://localhost:4723"), caps);
-			} catch (MalformedURLException e) { 
+			} catch (MalformedURLException e) {
 				e.printStackTrace();
 			}
 			tdriver.set(driver);
@@ -67,7 +67,7 @@ public class Base_Driver {
 	}
 
 	public static void main(String[] args)  {
-	
+
 
 	}
 }

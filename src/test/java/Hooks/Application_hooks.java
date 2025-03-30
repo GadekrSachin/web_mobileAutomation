@@ -37,14 +37,14 @@ public class Application_hooks {
 
 		String browserName = props.getProperty("browsername");
 		basedriver = new Base_Driver();
-		
+
 	//	if(browserName.equalsIgnoreCase("mobileweb")) {
 //			driver = basedriver.initializedDriver(browserName);
 //		} else {
-//			
+//
 //			String resolution = props.getProperty("Base_Resolution");
 //
-//			
+//
 //			if (resolution.equalsIgnoreCase(props.getProperty("Mobile_resolution"))) {
 //				basedriver.driver.manage().window().setSize(new org.openqa.selenium.Dimension(400, 750));
 //			} else {
@@ -53,11 +53,11 @@ public class Application_hooks {
 //
 //			basedriver.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5000));
 //		}
-			
+
 		driver = basedriver.initializedDriver(browserName);
-		 
+
 		if (!browserName.equalsIgnoreCase("mobileweb")) {
-			
+
 		    String resolution = props.getProperty("Base_Resolution");
 
 		    if (resolution.equalsIgnoreCase(props.getProperty("Mobile_resolution"))) {
@@ -68,13 +68,13 @@ public class Application_hooks {
 
 		    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		}
-		
-		basedriver.driver.get(props.getProperty("WebUrl"));
+
+		Base_Driver.driver.get(props.getProperty("WebUrl"));
 	}
 
 	@After
 	public void quitebrowser() {
-		 basedriver.driver.close();		 
+		Base_Driver.driver.close();
 	}
 
 }
