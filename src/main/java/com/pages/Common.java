@@ -6,18 +6,15 @@ import java.util.Collections;
 import java.util.Properties;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.interactions.Pause;
 import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
 
 import io.appium.java_client.AppiumBy;
-import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.touch.WaitOptions;
-import io.appium.java_client.touch.offset.PointOption;
 import io.cucumber.java.en.Given;
 import test.Base_Driver;
 
@@ -162,45 +159,39 @@ public class Common {
 
 	    public static void performMobileDragAndDrop(AndroidDriver driver, WebElement source, WebElement target) {
 	    	System.out.println("mobile auto");
+	    	int startX = source.getLocation().getX() + (source.getSize().getWidth() / 2);
+	        int startY = source.getLocation().getY() + (source.getSize().getHeight() / 2);
+	        int endX = target.getLocation().getX() + (target.getSize().getWidth() / 2);
+	        int endY = target.getLocation().getY() + (target.getSize().getHeight() / 2);
 
-//	    	  int startX = source.getLocation().getX() + (source.getSize().getWidth() / 2);
-//	    	    int startY = source.getLocation().getY() + (source.getSize().getHeight() / 2);
-//	    	    int endX = target.getLocation().getX() + (target.getSize().getWidth() / 2);
-//	    	    int endY = target.getLocation().getY() + (target.getSize().getHeight() / 2);
-//
-//	    	    TouchAction action = new TouchAction(driver);
-//	    	    action.press(PointOption.point(startX, startY))
-//	    	          .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(1)))
-//	    	          .moveTo(PointOption.point(endX, endY))
-//	    	          .release()
-//	    	          .perform();
-//
-//	    	    System.out.println("Drag and Drop performed using TouchAction for Mobile Web");
+
+	        System.out.println("startX"+ startX);
+	        System.out.println("starty"+ startY);
+	        System.out.println("endX"+ endX);
+	        System.out.println("endy"+ endY);
 
 
 
-	    	try {
-	            JavascriptExecutor js = (JavascriptExecutor) driver;
-	            String script = "function simulateDragDrop(source, destination) {"
-	                    + "var event = document.createEvent('CustomEvent');"
-	                    + "event.initCustomEvent('dragstart', true, true, null);"
-	                    + "source.dispatchEvent(event);"
-	                    + "setTimeout(() => {"
-	                    + "event = document.createEvent('CustomEvent');"
-	                    + "event.initCustomEvent('drop', true, true, null);"
-	                    + "destination.dispatchEvent(event);"
-	                    + "}, 2000);"
-	                    + "}"
-	                    + "simulateDragDrop(arguments[0], arguments[1]);";
+
+	        // Create PointerInput for touch actions
+	        PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+	        Sequence sequence = new Sequence(finger, 0);
+
+	        // Press (Touch)
+	        sequence.addAction(finger.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), startX, startY));
+	        sequence.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+	        sequence.addAction(new Pause(finger, Duration.ofMillis(2000)));
+	        // Move
+	        sequence.addAction(finger.createPointerMove(Duration.ofMillis(2000), PointerInput.Origin.viewport(), endX, endY));
+
+	        // Release (Lift finger)
+	        sequence.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+
+	        // Perform the action
+	        driver.perform(Collections.singletonList(sequence));
 
 
-	            js.executeScript(script, source, target);
-	            System.out.println("Drag and drop performed using JavaScript for Mobile Web");
 
-	        } catch (Exception e) {
-	            System.out.println("⚠️ JS Drag-and-Drop Failed, Trying Touch Gestures...");
-	            performMobileTouchDragAndDrop(driver, source, target);
-	        }
 	    }
 
 	    private  static void performMobileTouchDragAndDrop(AndroidDriver driver, WebElement source, WebElement target) {

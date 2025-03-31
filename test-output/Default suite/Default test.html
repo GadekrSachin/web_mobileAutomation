@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>1/0/0</td>
 </tr><tr>
-<td>Started on:</td><td>Sun Mar 30 13:40:20 IST 2025</td>
+<td>Started on:</td><td>Sun Mar 30 14:02:02 IST 2025</td>
 </tr>
-<tr><td>Total time:</td><td>28 seconds (28151 ms)</td>
+<tr><td>Total time:</td><td>40 seconds (40553 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,8 +67,8 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
-<table width='100%' border='1' class='invocation-failed'>
-<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
 <td width="30%"><b>Exception</b></td>
 <td width="10%"><b>Time (seconds)</b></td>
@@ -76,63 +76,8 @@ function toggleAllBoxes() {
 </tr>
 <tr>
 <td title='runner.loginrunner.runScenario()'><b>runScenario</b><br>Test class: runner.loginrunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify the drag and drop", "Home page functionality"</td>
-<td><div><pre>org.openqa.selenium.UnsupportedCommandException: unknown command: unknown command: session/ba26ec2840f90669bd45ee448aaf7d65/touch/perform
-Build info: version: &apos;4.11.0&apos;, revision: &apos;040bc5406b&apos;
-System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.9&apos;
-Driver info: io.appium.java_client.android.AndroidDriver
-Command: [8921b8a3-c611-49a3-aef9-4fca9bb7a196, performTouchAction {actions=[{action=press, options={x=81, y=223}}, {action=wait, options={ms=1000}}, {action=moveTo, options={x=238, y=335}}, {action=release, options={}}]}]
-Capabilities {appium:automationName: UiAutomator2, appium:chromedriverExecutable: C:\Users\SHUBH\Jav_project\..., appium:databaseEnabled: false, appium:desired: {appActivity: com.android.chrome/com.goog..., appPackage: com.android.chrome, automationName: UiAutomator2, browserName: Chrome, chromedriverExecutable: C:\Users\SHUBH\Jav_project\..., deviceName: emulator-5554, platformName: ANDROID}, appium:deviceApiLevel: 35, appium:deviceManufacturer: Google, appium:deviceModel: sdk_gphone16k_x86_64, appium:deviceName: emulator-5554, appium:deviceScreenDensity: 420, appium:deviceScreenSize: 1080x2400, appium:deviceUDID: emulator-5554, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:pixelRatio: 2.625, appium:platformVersion: 15, appium:statBarHeight: 128, appium:takesScreenshot: true, appium:viewportRect: {height: 2272, left: 0, top: 128, width: 1080}, appium:warnings: {}, appium:webStorageEnabled: false, browserName: Chrome, platformName: ANDROID}
-Session ID: 8921b8a3-c611-49a3-aef9-4fca9bb7a196
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
-	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:250)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:591)
-	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:308)
-	at io.appium.java_client.PerformsTouchActions.performTouchAction(PerformsTouchActions.java:54)
-	at io.appium.java_client.TouchAction.perform(TouchAction.java:196)
-	at com.pages.Common.performMobileDragAndDrop(Common.java:176)
-	at com.pages.Common.dragAndDrop(Common.java:141)
-	at com.pages.HomePage.drag_and_drop_functionality(HomePage.java:55)
-	at Step_def.Homestepdef.drag_and_drop_functionality(Homestepdef.java:47)
-	at ✽.drag and drop functionality(file:///C:/Users/SHUBH/Jav_project/web_mobileAutomation/./src/test/resources/Features/Home.feature:15)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1977652583", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1977652583'><pre>org.openqa.selenium.UnsupportedCommandException: unknown command: unknown command: session/ba26ec2840f90669bd45ee448aaf7d65/touch/perform
-Build info: version: &apos;4.11.0&apos;, revision: &apos;040bc5406b&apos;
-System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.9&apos;
-Driver info: io.appium.java_client.android.AndroidDriver
-Command: [8921b8a3-c611-49a3-aef9-4fca9bb7a196, performTouchAction {actions=[{action=press, options={x=81, y=223}}, {action=wait, options={ms=1000}}, {action=moveTo, options={x=238, y=335}}, {action=release, options={}}]}]
-Capabilities {appium:automationName: UiAutomator2, appium:chromedriverExecutable: C:\Users\SHUBH\Jav_project\..., appium:databaseEnabled: false, appium:desired: {appActivity: com.android.chrome/com.goog..., appPackage: com.android.chrome, automationName: UiAutomator2, browserName: Chrome, chromedriverExecutable: C:\Users\SHUBH\Jav_project\..., deviceName: emulator-5554, platformName: ANDROID}, appium:deviceApiLevel: 35, appium:deviceManufacturer: Google, appium:deviceModel: sdk_gphone16k_x86_64, appium:deviceName: emulator-5554, appium:deviceScreenDensity: 420, appium:deviceScreenSize: 1080x2400, appium:deviceUDID: emulator-5554, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:pixelRatio: 2.625, appium:platformVersion: 15, appium:statBarHeight: 128, appium:takesScreenshot: true, appium:viewportRect: {height: 2272, left: 0, top: 128, width: 1080}, appium:warnings: {}, appium:webStorageEnabled: false, browserName: Chrome, platformName: ANDROID}
-Session ID: 8921b8a3-c611-49a3-aef9-4fca9bb7a196
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
-	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:250)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:591)
-	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:308)
-	at io.appium.java_client.PerformsTouchActions.performTouchAction(PerformsTouchActions.java:54)
-	at io.appium.java_client.TouchAction.perform(TouchAction.java:196)
-	at com.pages.Common.performMobileDragAndDrop(Common.java:176)
-	at com.pages.Common.dragAndDrop(Common.java:141)
-	at com.pages.HomePage.drag_and_drop_functionality(HomePage.java:55)
-	at Step_def.Homestepdef.drag_and_drop_functionality(Homestepdef.java:47)
-	at ✽.drag and drop functionality(file:///C:/Users/SHUBH/Jav_project/web_mobileAutomation/./src/test/resources/Features/Home.feature:15)
-</pre></div></td>
-<td>27</td>
+<td></td>
+<td>39</td>
 <td>runner.loginrunner@79e4c792</td></tr>
 </table><p>
 </body>
